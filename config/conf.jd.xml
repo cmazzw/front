@@ -1,0 +1,987 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<conf bkpath="/behb/history" unknowpath="/behb/unknow" logpath="/home/filecom/log">
+  <derctoty d="/behb/diqu/swrecv" scantime="2" flag="swrecv">
+    <file id="1" Temp="Z_SURF_C_BFSW-REG*" desc="收水文的数据">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/aws_fkh</path>
+          <time>0</time>
+       </route>
+       <route id="2" desc="240服务器">
+          <ip>172.19.112.240</ip>
+          <mode>PASV</mode>
+          <usr>AWSFTP</usr>
+          <passwd>AWSFTP</passwd>
+          <path>/</path>
+          <time>0</time>
+       </route>
+    </file>
+  </derctoty>
+  <derctoty d="/behb/diqu/swsend" scantime="2" flag="swsend">
+    <file id="1" Temp="Z_SURF_C_*" desc="发水文的数据">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/swsend</path>
+          <time>0</time>
+       </route>
+    </file>
+  </derctoty>
+  <derctoty d="/behb/diqu/aws_reg_kh" scantime="2" flag="aws_reg_kh">
+    <file id="1" Temp="Z_SURF_C_????-REG_*" desc="收考核的区域站">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/aws</path>
+          <time>0</time>
+       </route>
+       <route id="2" desc="LOOP">
+          <ip>LOOP</ip>
+          <mode>null</mode>
+          <usr>null</usr>
+          <passwd>null</passwd>
+          <path>/behb/diqu/rqc</path>
+          <time>0</time>
+       </route>
+       <route id="3" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/aws_reg</path>
+          <time>1</time>
+       </route>
+    </file>
+  </derctoty>
+  <derctoty d="/behb/diqu/aws_reg_fkh" scantime="2" flag="aws_reg_fkh">
+    <file id="1" Temp="Z_SURF_C_B???-REG*_O_AWS_FTM.*" desc="收不考核的区域站数据">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/aws_fkh</path>
+          <time>0</time>
+       </route>
+       <route id="2" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/aws_reg</path>
+          <time>1</time>
+       </route>
+    </file>
+    <file id="2" Temp="Z_SURF_I_5????_*" desc="收无人站">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/aws_fkh</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="3" Temp="Z_SURF_C_BEHB-REG_*_O_AWS-PRF_FTM*" desc="单雨量站">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/aws_fkh</path>
+          <time>0</time>
+       </route>
+    </file>
+  </derctoty>
+  <derctoty d="/behb/diqu/star/FY/IR1_R01" scantime="5" flag="fy_ir1">
+    <file id="1" Temp="*.png" desc="fy_ir1">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/fy_pub/ir1</path>
+          <time>1</time>
+       </route>
+    </file>
+  </derctoty>
+  <derctoty d="/behb/diqu/star/FY/IR3_R01" scantime="5" flag="fy_ir3">
+    <file id="1" Temp="*.png" desc="fy_ir3">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/fy_pub/ir3</path>
+          <time>1</time>
+       </route>
+    </file>
+  </derctoty>
+  <derctoty d="/behb/diqu/star/FY/VIS" scantime="5" flag="vis">
+    <file id="1" Temp="*.png" desc="vis">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/fy_pub/vis</path>
+          <time>1</time>
+       </route>
+    </file>
+  </derctoty>
+  <derctoty d="/behb/diqu/star/H8/01" scantime="5" flag="h8_01">
+    <file id="1" Temp="*.png" desc="nc格式">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/h8/01</path>
+          <time>1</time>
+       </route>
+    </file>
+  </derctoty>
+  <derctoty d="/behb/diqu/star/H8/07" scantime="5" flag="h8_07">
+    <file id="1" Temp="*.png" desc="nc格式">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/h8/07</path>
+          <time>1</time>
+       </route>
+    </file>
+  </derctoty>
+  <derctoty d="/behb/diqu/star/H8/13" scantime="5" flag="h8_13">
+    <file id="1" Temp="*.png" desc="nc格式">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/h8/13</path>
+          <time>1</time>
+       </route>
+    </file>
+  </derctoty>
+  <derctoty d="/behb/diqu/bjanc" scantime="5" flag="bjanc">
+    <file id="1" Temp="*_bjanc_*.nc" desc="nc格式">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/bjanc/nc</path>
+          <time>1</time>
+       </route>
+    </file>
+    <file id="2" Temp="*.png" desc="png格式">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/bjanc/png</path>
+          <time>1</time>
+       </route>
+    </file>
+  </derctoty>
+  <derctoty d="/behb/diqu/rmapsin" scantime="5" flag="rmapsin">
+    <file id="1" Temp="*.nc" desc="nc格式">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/rmapsin/nc</path>
+          <time>1</time>
+       </route>
+    </file>
+    <file id="2" Temp="*.png" desc="png格式">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/rmapsin/png</path>
+          <time>1</time>
+       </route>
+    </file>
+  </derctoty>
+  <derctoty d="/behb/diqu/sevp" scantime="2" flag="sevp">
+    <file id="1" Temp="Z_SEVP_C_????_*_P_RFFC-SPCC-*-?????.TXT" desc="收智能网格的数据">
+       <route id="1" desc="推给气象台">
+          <ip>172.19.112.3</ip>
+          <mode>PASV</mode>
+          <usr>tx</usr>
+          <passwd>tx953</passwd>
+          <path>/behb/diqu/history</path>
+          <time>0</time>
+       </route>
+       <route id="2" desc="本地打包">
+          <ip>LOOP</ip>
+          <mode>null</mode>
+          <usr>null</usr>
+          <passwd>null</passwd>
+          <path>/behb/diqu/scenter</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="2" Temp="Z_SEVP_C_BEHB_*_P_RFFC-SPCC6H-*-?????.TXT" desc="收哈尔滨大城市预报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/sevp</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="3" Temp="Z_SEVP_C_????_*_P_RFFC-SLMOF-*-?????.TXT" desc="乡镇预报">
+       <route id="1" desc="点三">
+          <ip>172.19.112.3</ip>
+          <mode>PASV</mode>
+          <usr>tx</usr>
+          <passwd>tx953</passwd>
+          <path>/behb/diqu/history</path>
+          <time>0</time>
+       </route>
+    </file>
+  </derctoty>
+  <derctoty d="/behb/diqu/awsdata" scantime="5" flag="awsdata">
+    <file id="1" Temp="Z_SURF_I_H*_O_AWS_FTM.txt" desc="外网收集的农垦新长Z/错误格式">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/aws_fkh</path>
+          <time>0</time>
+       </route>
+   </file>
+  </derctoty>
+  <derctoty d="/behb/diqu/radr" scantime="5" flag="radr">
+    <file id="1" Temp="Z_R_DWRN*" desc="收集的雷达状态数据">
+       <route id="1" desc="cts">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/mon</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="2" Temp="Z_A_DWRN*" desc="收集的雷达告警数据">
+       <route id="1" desc="cts">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/mon</path>
+          <time>0</time>
+       </route>
+    </file>
+  </derctoty>
+  <derctoty d="/behb/diqu/umsg" scantime="4" flag="umsg">
+    <file id="1" Temp="Z_SEVP_*_P_AGRM-AMDB.doc" desc="收集的科研所数据">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/sevp</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="2" Temp="?P??????.???" desc="高空资料msg">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/msg</path>
+        <time>0</time>
+       </route>
+    </file>
+    <file id="3" Temp="Z_UPAR_*" desc="探空基数据或者bufr格式">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/upar_temp</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="4" Temp="Z_SEVP_*" desc="打包后的精细化预报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/sevp</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="5" Temp="Z_UPAR_*_O_GPS2.rnx.zip" desc="GPS/MET">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/gps</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="6" Temp="Z_CAWN*" desc="大气成分">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/cawn</path>
+          <time>0</time>
+       </route>
+   </file>
+   <file id="7" Temp="Z_SWGO_I_*.txt" desc="空间数据">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/swgo</path>
+          <time>0</time>
+       </route>
+   </file>
+   <file id="8" Temp="????????.URP" desc="紫外线">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/qbzq</path>
+          <time>0</time>
+       </route>
+   </file>
+   <file id="9" Temp="WT*BIN" desc="风能">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/wind</path>
+          <time>0</time>
+       </route>
+   </file>
+   <file id="10" Temp="Z_AGME*" desc="农气数据(土壤水分)">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/agm</path>
+          <time>0</time>
+       </route>
+   </file>
+   <file id="11" Temp="Z_SURF_C_BEHB-REG_*_O_AWS_FTM.txt" desc="农田小气候仪">
+       <route id="1" desc="LOOP">
+          <ip>LOOP</ip>
+          <mode>null</mode>
+          <usr>null</usr>
+          <passwd>null</passwd>
+          <path>/behb/diqu/agm</path>
+          <time>0</time>
+       </route>
+   </file>
+   <file id="12" Temp="GA????BJ.EHB" desc="高空月报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/clim</path>
+          <time>0</time>
+       </route>
+   </file>
+  </derctoty>
+  <derctoty d="/behb/diqu/nation_new" scantime="2" flag="nation_new">
+    <file id="1" Temp="Z_SURF_I_*_O_AWS-SS_DAY*" desc="日照数据">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/aws_tmp</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="2" Temp="Z_SURF_I_*_O_AWS_DAY.*" desc="日值数据">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/aws</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="3" Temp="Z_SURF_I_xxxxx_*_O_AWS_FTM*" desc="新Z数据">
+       <route id="1" desc="NCENTER">
+          <ip>LOOP</ip>
+          <mode>null</mode>
+          <usr>null</usr>
+          <passwd>null</passwd>
+          <path>/behb/diqu/aws_new</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="4" Temp="Z_SURF_I_*_O_AWS_FTM*" desc="新Z数据">
+       <route id="1" desc="NCENTER">
+          <ip>LOOP</ip>
+          <mode>null</mode>
+          <usr>null</usr>
+          <passwd>null</passwd>
+          <path>/behb/diqu/ncenter/new</path>
+          <time>0</time>
+       </route>
+       <route id="2" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/aws_tmp</path>
+          <time>0</time>
+       </route>
+       <route id="3" desc="GPS">
+          <ip>172.19.112.131</ip>
+          <mode>PASV</mode>
+          <usr>radaruser</usr>
+          <passwd>metstar</passwd>
+          <path>/home/radaruser/aws</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="5" Temp="AWS_M_Z_*" desc="ISOS分钟数据">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/aws</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="6" Temp="Z_RADI_I_*_O_ARS_FTM.txt" desc="辐射数据">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/radi</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="7" Temp="W*" desc="重要天气报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/msg</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="8" Temp="A5????-??????.???" desc="A文件">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/clim</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="9" Temp="J5????-??????.???" desc="J文件">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/clim</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="10" Temp="R5????-??????.???" desc="R文件">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/clim</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="11" Temp="Y5????-????.???" desc="Y文件">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/clim</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="12" Temp="Z_SURF_I_*_R_AWS_FTM.*" desc="状态文件">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/aws</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="13" Temp="Z_CAWN_I_*_O_AR_FTM.*" desc="酸雨日文件">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/cawn</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="14" Temp="Z_CAWN_I_*_O_AR_MON.*" desc="酸雨月文件">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/cawn</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="15" Temp="Z_SURF_I_*_O_AWS-RSD*" desc="酸雨月文件">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/behb/workdir/incoming/aws_new</path>
+          <time>0</time>
+       </route>
+    </file>
+   </derctoty>
+   <derctoty d="/behb/diqu/nation_old" scantime="2" flag="nation_old">
+    <file id="1" Temp="Z_SURF_I_xxxxx_*_O_AWS_FTM*" desc="新Z数据">
+       <route id="1" desc="CTS">
+          <ip>LOOP</ip>
+          <mode>null</mode>
+          <usr>null</usr>
+          <passwd>null</passwd>
+          <path>/behb/diqu/nation_new</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="1" Temp="Z_SURF_I_*_O_AWS_FTM*" desc="新Z数据">
+       <route id="1" desc="CTS">
+          <ip>LOOP</ip>
+          <mode>null</mode>
+          <usr>null</usr>
+          <passwd>null</passwd>
+          <path>/behb/diqu/ncenter/old</path>
+          <time>0</time>
+       </route>
+    </file>
+   </derctoty>
+   <derctoty d="/behb/diqu/public" scantime="5" flag="public">
+    <file id="1" Temp="黑龙江省*气候趋势预测" desc="气候中心_气候趋势预报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/qhzx/qhqsyb</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="1" Temp="hljryzdyb_gc_*.pdf" desc="人影中心_人影作业过程预报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/ryb/ryzdyb_gc</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="2" Temp="hljryzdyb_zy_*.pdf" desc="人影中心_增雨作业条件预报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/ryb/ryzdyb_zy</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="3" Temp="hljryzdyb_fb_*.pdf" desc="人影中心_防雹作业指导预报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/ryb/ryzdyb_fb</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="4" Temp="hljzyxxsbzlb*.pdf" desc="人影中心_作业质量统计">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/ryb/ry_zlb</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="5" Temp="*zyfjqjxx_*.txt" desc="人影中心_增雨飞机信息">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/ryb/ry_zyfj_info</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="5" Temp="hljryzybg_*.doc" desc="人影中心_人影作业报告">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/ryb/ryzybg</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="6" Temp="《重大气象信息专报》*" desc="省气象台_重大气象信息专报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/qxt/zdqxzb</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="7" Temp="气象信息*.doc" desc="省气象台_气象信息">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/qxt/qxinfo</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="8" Temp="气象信息*.jpg" desc="省气象台_降水信息">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/qxt/qxrain</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="9" Temp="未来15天全省天气趋势预报*.doc" desc="省气象台_趋势预报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/qxt/qsyb</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="10" Temp="hlj*.txt" desc="省气象台_天气预报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/qxt/tqyb</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="11" Temp="中期预报*" desc="省气象台_中期预报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/qxt/zqyb</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="13" Temp="省台天气形势分析????????*" desc="省气象台_天气形势">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/qxt/tqxs</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="14" Temp="大气扩散气象条件预报*" desc="省气象台_污染预报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/qxt/wryb</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="15" Temp="省台环境指导预报????????*" desc="省气象台_环境预报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/qxt/hjyb</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="16" Temp="黑龙江省气象台*预警信号*" desc="省气象台_预警信号">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/qxt/yjxh</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="17" Temp="jb????????????.txt" desc="省气象台_短时警报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/qxt/jb</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="18" Temp="黑龙江省*旬农业气象旬报.doc" desc="省科研所_农业旬报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/kys/nyxb</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="19" Temp="黑龙江省*月农业气象月报.doc" desc="省科研所_农业月报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/kys/nyyb</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="20" Temp="黑龙江省*日生态与农业气象信息.doc" desc="省科研所_生态信息">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/kys/stinfo</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="21" Temp="黑龙江省*日农用天气预报.doc" desc="省科研所_农用预报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/kys/nytqyb</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="22" Temp="黑龙江省*日农业干旱监测预报.doc" desc="省科研所_干旱预报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/kys/ghyb</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="23" Temp="黑龙江省*农业气象产量*预报.doc" desc="省科研所_产量预报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/kys/clyb</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="24" Temp="黑龙江省春耕春播气象服务专报*.doc" desc="省科研所_春耕预报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/kys/cgyb</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="25" Temp="黑龙江省*秋收气象服务专报.doc" desc="省科研所_秋收预报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/kys/qsyb</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="26" Temp="黑龙江省*土壤水分监测公报.doc" desc="省科研所_土壤水分">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/kys/trsf</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="27" Temp="黑龙江省稻瘟病气象潜势预报*.doc" desc="省科研所_瘟病预报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/kys/wbyb</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="28" Temp="黑龙江省*特色农业气象服务*.doc" desc="省科研所_特色农业">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/kys/tsny</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="29" Temp="黑龙江省*日业务专报*.doc" desc="省科研所_业务专报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/kys/ywzb</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="30" Temp="黑龙江省*日农业气象情报.doc" desc="省科研所_农业气象情报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/kys/nyqxqb</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="31" Temp="黑龙江省*日火情监测信息*.doc" desc="省科研所_火情监测">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/kys/hqjc</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="32" Temp="黑龙江省*月份酸雨监测公报.doc" desc="省科研所_酸雨公报">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/kys/sygb</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="33" Temp="黑龙江省????年生态气象监测评估-森林生态质量气象评估.doc" desc="省科研所_生态质量">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/kys/stzl</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="34" Temp="????年*月*积雪监测.doc" desc="省科研所_积雪监测">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/kys/jxjc</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="35" Temp="黑龙江省*生态气象监测评估-植被长势监测.doc" desc="省科研所_植被监测">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/kys/zbjc</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="36" Temp="黑龙江省*生态气象监测评估-霾监测.doc" desc="省科研所_霾监测">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/kys/mjc</path>
+          <time>0</time>
+       </route>
+    </file>
+    <file id="37" Temp="黑龙江省*旬水情监测信息.doc" desc="省科研所_水情监测">
+       <route id="1" desc="CTS">
+          <ip>10.96.72.30</ip>
+          <mode>PASV</mode>
+          <usr>cts</usr>
+          <passwd>cmscts001</passwd>
+          <path>/share/public/kys/sqjc</path>
+          <time>0</time>
+       </route>
+    </file>
+   </derctoty>
+</conf>
