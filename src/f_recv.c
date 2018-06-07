@@ -67,12 +67,12 @@ int match(char *ptext,char *name)
    return match(ptext+1,name+1);
 }
 
-void mkdirs(char *muldir)   
+mkdirs(char *muldir)   
 {  
-    int i,len;  
-    char str[512];      
-    strncpy(str, muldir, 512);  
-    len=strlen(str);  
+    int i,len;
+    char str[512];
+    strncpy(str, muldir, 512);
+    len=strlen(str);
     for( i=0; i<len; i++ )  
     {  
         if( str[i]=='/' )  
@@ -80,16 +80,15 @@ void mkdirs(char *muldir)
             str[i] = '\0';  
             if( access(str,0)!=0 )  
             {  
-                mkdir( str, 0775);  
+               mkdir( str, 0775);  
             }  
             str[i]='/';  
         }  
     }  
-    if( len>0 && access(str,0)!=0 )  
+    if( len>0 && access(str,0)!=0 )
     {  
-        mkdir( str, 0775);  
+        mkdir( str, 0775);
     }  
-    return;
 } 
 
 
@@ -233,11 +232,7 @@ int main()
             DIR *dp_ln_test=opendir(ln_path);
             if(NULL==dp_ln_test)
                {
-                 if(mkdir(ln_path,0775)!=0)
-                 {
-                     fprintf(stderr,"创建%s目录失败，原因:%d\n",ln_path,errno);
-                     exit(EXIT_FAILURE);
-                 }
+                  mkdirs(ln_path);
                }
             else
                closedir(dp_ln_test);
@@ -282,11 +277,7 @@ int main()
                    DIR *dp_log_test=opendir(log_path);
                    if(NULL==dp_log_test)
                    {
-                      if(mkdir(log_path,0775)!=0)
-                       {
-                          fprintf(stderr,"创建%s目录失败，原因:%d\n",log_path,errno);
-                          exit(EXIT_FAILURE);
-                       }
+                      mkdirs(log_path);
                    }
                    else
                        closedir(dp_log_test);
@@ -309,11 +300,7 @@ int main()
                        DIR *dp_bk_test=opendir(bk_path_time);
                        if(NULL==dp_bk_test)
                        {
-                           if(mkdir(bk_path_time,0775)!=0)
-                           {
-                              fprintf(stderr,"创建%s目录失败，原因:%d\n",bk_path_time,errno);
-                              exit(EXIT_FAILURE);
-                           }
+                          mkdirs(bk_path_time);
                        }
                        else
                           closedir(dp_bk_test);
@@ -324,11 +311,7 @@ int main()
                        DIR *dp_unknow_test=opendir(unknow_path_time);
                        if(NULL==dp_unknow_test)
                           {
-                            if(mkdir(unknow_path_time,0775)!=0)
-                            {
-                              fprintf(stderr,"创建%s目录失败，原因:%d\n",unknow_path_time,errno);
-                              exit(EXIT_FAILURE);
-                            }
+                             mkdirs(unknow_path_time);
                           }
                        else
                           closedir(dp_unknow_test);  
