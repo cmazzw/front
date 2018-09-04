@@ -77,7 +77,7 @@ size_t readfunc(void *ptr, size_t size, size_t nmemb, void *stream)
 }
 
 //上传函数
-int upload(job para,int timeout,int tries,FILE *fp)
+int upload(job para,FILE *fp)
 {
   int return_value;
 
@@ -106,16 +106,16 @@ int upload(job para,int timeout,int tries,FILE *fp)
 
   renamelist = curl_slist_append(renamelist,para.job_rnfr_di);
   renamelist = curl_slist_append(renamelist,para.job_rnto_di);
+  curl_easy_setopt(curlhandle, CURLOPT_POSTQUOTE, renamelist);//上传tmp文件
   curl_easy_setopt(curlhandle, CURLOPT_UPLOAD, 1L);
   curl_easy_setopt(curlhandle, CURLOPT_URL, para.job_url_di);
   curl_easy_setopt(curlhandle,CURLOPT_USERPWD,para.job_host_auth);
-  if(timeout)
-    curl_easy_setopt(curlhandle, CURLOPT_FTP_RESPONSE_TIMEOUT, timeout);
+  curl_easy_setopt(curlhandle, CURLOPT_FTP_RESPONSE_TIMEOUT,1);
+  curl_easy_setopt(curlhandle, CURLOPT_CONNECTTIMEOUT,2);
   curl_easy_setopt(curlhandle, CURLOPT_HEADERFUNCTION, getcontentlengthfunc);
   curl_easy_setopt(curlhandle, CURLOPT_HEADERDATA, &uploaded_len);
   curl_easy_setopt(curlhandle, CURLOPT_WRITEFUNCTION, discardfunc);
   curl_easy_setopt(curlhandle, CURLOPT_READFUNCTION, readfunc);
-  curl_easy_setopt(curlhandle, CURLOPT_POSTQUOTE, renamelist);//上传tmp文件
   curl_easy_setopt(curlhandle, CURLOPT_DEBUGDATA, fp);
   curl_easy_setopt(curlhandle, CURLOPT_DEBUGFUNCTION, ftp_log);
   curl_easy_setopt(curlhandle, CURLOPT_READDATA, f);
@@ -127,12 +127,10 @@ int upload(job para,int timeout,int tries,FILE *fp)
   curl_easy_setopt(curlhandle, CURLOPT_VERBOSE, 1L);
   curl_easy_setopt(curlhandle, CURLOPT_APPEND, 1L);
 
-
-  for(c = 0; (r != CURLE_OK) && (c < tries); c++) 
+  for(c = 0; (r != CURLE_OK) && (c < 1); c++) 
   {
     r = curl_easy_perform(curlhandle);
   }
-
   fclose(f);
 
   if(r != CURLE_OK)
@@ -186,7 +184,6 @@ int main(void)
 
     while(1)
      {
-         printf("now recv msg\n");
          //获取当前时间
          time_t timer;//time_t就是long int 类型
          struct tm  *tm_struct;//存储时间的结构体
@@ -218,19 +215,18 @@ int main(void)
             exit(EXIT_FAILURE);
           }
         fprintf(fp,"%s,%s,%s,%s,%s,%d\n",msg_di.msg_job.job_local_di,msg_di.msg_job.job_host_auth,msg_di.msg_job.job_url_di,msg_di.msg_job.job_rnfr_di,msg_di.msg_job.job_rnto_di,msg_di.msg_job.job_ftp_mode);
-        int ftp_status=upload(msg_di.msg_job,0,3,fp);
+        printf("job:%s:",msg_di.msg_job.job_local_di);
+        int ftp_status=upload(msg_di.msg_job,fp);
         if(ftp_status==1)
          {
+             printf("sucessful\n");
              fprintf(fp,"ftp sucessful!");
-             if(remove(msg_di.msg_job.job_local_di)==0)
-                 {
-                   //fprintf(fp,"ftp sucessful!");
-                   printf("%s is remove",msg_di.msg_job.job_local_di);
-                 }
+             remove(msg_di.msg_job.job_local_di);
          }
         else
          {
              //记录失败的传输
+             printf("failed\n");
              int faildstatus=faildjob(msg_di.msg_job);
              fprintf(fp,"ftp failed!");
          }
